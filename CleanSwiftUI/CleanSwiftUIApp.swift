@@ -11,12 +11,9 @@ import SwiftUI
 struct CleanSwiftUIApp: App {
     @UIApplicationDelegateAdaptor var delegate: AppDelegate
     
-    let assembler = Assembler.production
-    
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(assembler)
         }
     }
 }

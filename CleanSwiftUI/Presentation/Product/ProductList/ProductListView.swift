@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import Factory
 
-struct ProductListView: View {
-    @EnvironmentObject var assembler: Assembler
+struct ProductListView: View, GetProductList {
     @State private var products = [Product]()
     @State private var error: IDError?
     @State private var selectedProduct: Product?
     @State private var cancelBag = CancelBag()
+    
+    @Injected(Container.productGateway) var productGateway
     
     var body: some View {
         List {
@@ -61,14 +63,9 @@ extension ProductListView {
     }
 }
 
-extension ProductListView: GetProductList {
-    var productGateway: ProductGatewayProtocol {
-        assembler.productGateway()
-    }
-}
-
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
+        let _ = Container.productGateway.register { MockProductGateway() }
         ProductListView()
     }
 }
