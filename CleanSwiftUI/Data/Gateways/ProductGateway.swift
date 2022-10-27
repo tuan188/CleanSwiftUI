@@ -10,11 +10,11 @@ import Combine
 import Factory
 
 protocol ProductGatewayProtocol {
-    func getProductList() -> AnyPublisher<[Product], Error>
+    func getListProduct() -> AnyPublisher<[Product], Error>
 }
 
 struct ProductGateway: ProductGatewayProtocol {
-    func getProductList() -> AnyPublisher<[Product], Error> {
+    func getListProduct() -> AnyPublisher<[Product], Error> {
         Future<[Product], Error> { promise in
             let products = [
                 Product(id: 0, name: "iPhone", price: 999),
@@ -30,7 +30,7 @@ struct ProductGateway: ProductGatewayProtocol {
 }
 
 struct MockProductGateway: ProductGatewayProtocol {
-    func getProductList() -> AnyPublisher<[Product], Error> {
+    func getListProduct() -> AnyPublisher<[Product], Error> {
         Future<[Product], Error> { promise in
             let products = [
                 Product(id: 0, name: "Mock iPhone", price: 999),

@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
+      "identity" : "corestore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JohnEstropia/CoreStore",
+      "state" : {
+        "revision" : "25593754913d228777f14634bc6f493dbeb4e9fb",
+        "version" : "9.0.0"
+      }
+    },
+    {
       "identity" : "factory",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hmlongco/Factory",
       "state" : {
         "revision" : "8557426f3286e20b631ecdac8115242f888656e0",
         "version" : "1.2.8"
+      }
+    },
+    {
+      "identity" : "requestbuilder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmlongco/RequestBuilder",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5bfbbb09394aeb2959a42e8f9a50667128d5eeec"
       }
     },
     {

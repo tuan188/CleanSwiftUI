@@ -18,6 +18,14 @@ struct MainView: View {
                         Text("Products")
                     }
                 }
+                
+                Section("Repo") {
+                    NavigationLink {
+                        RepoListView()
+                    } label: {
+                        Text("Repo List")
+                    }
+                }
             }
             .navigationTitle("Templates")
             .navigationBarTitleDisplayMode(.inline)

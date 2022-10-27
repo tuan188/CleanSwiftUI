@@ -1,5 +1,5 @@
 //
-//  GetProductList.swift
+//  GetListProduct.swift
 //  CleanSwiftUI
 //
 //  Created by Tuan Truong on 19/08/2022.
@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-protocol GetProductList {
+protocol GetListProduct {
     var productGateway: ProductGatewayProtocol { get }
 }
 
-extension GetProductList {
+extension GetListProduct {
     func getProductList() -> AnyPublisher<[Product], Error> {
-        productGateway.getProductList()
+        productGateway.getListProduct()
     }
 }

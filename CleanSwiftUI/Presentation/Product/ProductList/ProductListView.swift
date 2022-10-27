@@ -8,7 +8,7 @@
 import SwiftUI
 import Factory
 
-struct ProductListView: View, GetProductList {
+struct ProductListView: View, GetListProduct {
     @State private var products = [Product]()
     @State private var error: IDError?
     @State private var selectedProduct: Product?
