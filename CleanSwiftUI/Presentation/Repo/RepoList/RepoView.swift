@@ -23,6 +23,8 @@ struct RepoView: View {
             .cornerRadius(5)
             
             Text(repo.fullName)
+            
+            Spacer()
         }
     }
 }

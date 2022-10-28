@@ -9,7 +9,7 @@ import Foundation
 import Then
 
 struct Repo {
-    struct Owner: Codable {
+    struct Owner: Codable, Equatable {
         var id = 0
         var login = ""
         var avatarUrl = ""
@@ -42,4 +42,4 @@ extension Repo: Codable {
     }
 }
 
-extension Repo: Then, Identifiable { }
+extension Repo: Then, Identifiable, Equatable { }
