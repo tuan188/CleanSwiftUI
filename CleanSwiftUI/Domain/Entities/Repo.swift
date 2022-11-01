@@ -25,6 +25,7 @@ struct Repo {
     var name = ""
     var fullName = ""
     var url = ""
+    var eventUrl = ""
     var stars = 0
     var forks = 0
     var owner: Owner?
@@ -36,6 +37,7 @@ extension Repo: Codable {
         case name
         case fullName = "full_name"
         case url
+        case eventUrl = "events_url"
         case stars = "stargazers_count"
         case forks
         case owner

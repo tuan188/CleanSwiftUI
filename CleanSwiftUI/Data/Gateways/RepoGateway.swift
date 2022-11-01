@@ -12,10 +12,11 @@ import Combine
 
 protocol RepoGatewayProtocol {
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<[Repo], Error>
+    func getEvents(url: String, page: Int, perPage: Int) -> AnyPublisher<[Event], Error>
 }
 
 final class RepoGateway: RepoGatewayProtocol {
-    struct GetReposResult: Codable {
+    private struct GetReposResult: Codable {
         var items = [Repo]()
     }
     
@@ -30,6 +31,18 @@ final class RepoGateway: RepoGatewayProtocol {
             ])
             .data(type: GetReposResult.self)
             .map(\.items)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getEvents(url: String, page: Int, perPage: Int) -> AnyPublisher<[Event], Error> {
+        APISessionManager.gitSessionManager
+            .request(forURL: URL(string: url))
+            .add(parameters: [
+                "per_page": perPage,
+                "page": page
+            ])
+            .data(type: [Event].self)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

@@ -10,6 +10,10 @@ import Factory
 import Combine
 
 struct RepoListView: View, GetRepos {
+    private enum ViewState {
+        case isLoading, loaded, loadingMore, reloading
+    }
+    
     // Dependencies
     @Injected(Container.repoGateway) var repoGateway: RepoGatewayProtocol
     
@@ -21,10 +25,6 @@ struct RepoListView: View, GetRepos {
     @State private var page = 1
     
     private let perPage = 20
-    
-    enum ViewState {
-        case isLoading, loaded, loadingMore, prepareLoadingMore
-    }
     
     var body: some View {
         content
@@ -39,7 +39,7 @@ private extension RepoListView {
         switch state {
         case .isLoading:
             loadingView()
-        case .loaded, .loadingMore, .prepareLoadingMore:
+        case .loaded, .loadingMore, .reloading:
             listView()
         }
     }
@@ -57,7 +57,11 @@ private extension RepoListView {
     func listView() -> some View {
         List {
             ForEach(repos) { repo in
-                RepoView(repo: repo)
+                NavigationLink {
+                    RepoDetailView(repo: repo)
+                } label: {
+                    RepoView(repo: repo)
+                }
             }
             
             if state == .loadingMore {
@@ -72,18 +76,21 @@ private extension RepoListView {
                     .padding()
                     .onAppear {
                         loadMoreRepos()
-                        let _ = print("load more")
                     }
             }
         }
+        .refreshable {
+            loadRepos()
+        }
         .listStyle(.plain)
+        .alert(error: $error)
     }
 }
 
 // MARK: - Methods
-extension RepoListView {
+private extension RepoListView {
     func loadRepos() {
-        getRepos(page: page, perPage: perPage)
+        getRepos(page: 1, perPage: perPage)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -92,15 +99,21 @@ extension RepoListView {
                     break
                 }
             } receiveValue: { repos in
+                self.page = 1
                 self.repos = repos
                 state = .loaded
             }
             .store(in: cancelBag)
     }
     
+    func reloadRepos() {
+        guard state == .loaded else { return }
+        state = .reloading
+        loadRepos()
+    }
+    
     func loadMoreRepos() {
-        guard state != .loadingMore else { return }
-        
+        guard state == .loaded else { return }
         state = .loadingMore
 
         getRepos(page: page + 1, perPage: perPage)
