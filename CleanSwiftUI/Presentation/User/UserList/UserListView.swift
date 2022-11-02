@@ -66,6 +66,14 @@ struct UserListView: View, GetUsers {
                 Text("No users")
                     .font(.title)
                     .foregroundColor(.secondary)
+                
+                Button {
+                    showAddUser.toggle()
+                } label: {
+                    Label("Add", systemImage: "plus")
+                }
+                .buttonStyle(.bordered)
+                
                 Spacer()
             }
         } else {

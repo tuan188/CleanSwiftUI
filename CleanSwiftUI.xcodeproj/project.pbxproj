@@ -43,6 +43,8 @@
 		177E1A5D29121A7E0099BB24 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A5C29121A7E0099BB24 /* AddUser.swift */; };
 		177E1A6129121CD70099BB24 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6029121CD70099BB24 /* UserListView.swift */; };
 		177E1A6329121FDC0099BB24 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6229121FDC0099BB24 /* GetUsers.swift */; };
+		177E1A6629124D760099BB24 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6529124D760099BB24 /* MoreView.swift */; };
+		177E1A6929124FD90099BB24 /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6829124FD90099BB24 /* AppColorScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		177E1A5C29121A7E0099BB24 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
 		177E1A6029121CD70099BB24 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		177E1A6229121FDC0099BB24 /* GetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
+		177E1A6529124D760099BB24 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		177E1A6829124FD90099BB24 /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 		1716E01828AF66D80038A363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				177E1A6729124FC50099BB24 /* Common */,
+				177E1A6429124C650099BB24 /* More */,
 				177E1A5E29121CC90099BB24 /* User */,
 				17374225290A72E900AF8707 /* Repo */,
 				1716E02628AF6A260038A363 /* Product */,
@@ -335,6 +341,22 @@
 			path = UserList;
 			sourceTree = "<group>";
 		};
+		177E1A6429124C650099BB24 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A6529124D760099BB24 /* MoreView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		177E1A6729124FC50099BB24 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A6829124FD90099BB24 /* AppColorScheme.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +443,7 @@
 				172A7D3D2910F266005A2D3A /* GetEvents.swift in Sources */,
 				1716E04128AF71F10038A363 /* ProductDetailView.swift in Sources */,
 				177E1A50291210630099BB24 /* User.swift in Sources */,
+				177E1A6929124FD90099BB24 /* AppColorScheme.swift in Sources */,
 				17374228290A737000AF8707 /* RepoListView.swift in Sources */,
 				1716E03D28AF6ED40038A363 /* Double+.swift in Sources */,
 				17374221290A6FF000AF8707 /* Config+URLs.swift in Sources */,
@@ -438,6 +461,7 @@
 				17374224290A71E200AF8707 /* GetRepos.swift in Sources */,
 				1716E02528AF697D0038A363 /* View+.swift in Sources */,
 				1737421F290A6F6900AF8707 /* APISessionManager.swift in Sources */,
+				177E1A6629124D760099BB24 /* MoreView.swift in Sources */,
 				1737422A290A751100AF8707 /* RepoView.swift in Sources */,
 				1716E02028AF677E0038A363 /* AppDelegate.swift in Sources */,
 				172A7D3F2910F734005A2D3A /* EventView.swift in Sources */,

@@ -11,6 +11,18 @@ import CoreStore
 @main
 struct CleanSwiftUIApp: App {
     @UIApplicationDelegateAdaptor var delegate: AppDelegate
+    @AppStorage("colorScheme") private var colorScheme = AppColorScheme.system
+    
+    var appColorScheme: ColorScheme? {
+        switch colorScheme {
+        case .system:
+            return nil
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
     
     init() {
         configCoreStore()
@@ -19,6 +31,7 @@ struct CleanSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .preferredColorScheme(appColorScheme)
         }
     }
 }

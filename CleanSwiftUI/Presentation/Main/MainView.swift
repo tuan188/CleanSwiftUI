@@ -9,16 +9,22 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
+        TabView {
+            homeView
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+            
+            moreView
+                .tabItem {
+                    Label("More", systemImage: "ellipsis")
+                }
+        }
+    }
+    
+    private var homeView: some View {
         NavigationView {
             List {
-                Section("Product") {
-                    NavigationLink {
-                        ProductListView()
-                    } label: {
-                        Text("Product List")
-                    }
-                }
-                
                 Section("Repo (API)") {
                     NavigationLink {
                         RepoListView()
@@ -35,8 +41,14 @@ struct MainView: View {
                     }
                 }
             }
-            .navigationTitle("Templates")
+            .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+    
+    private var moreView: some View {
+        NavigationView {
+            MoreView()
         }
     }
 }
