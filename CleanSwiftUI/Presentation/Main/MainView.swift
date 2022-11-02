@@ -15,15 +15,23 @@ struct MainView: View {
                     NavigationLink {
                         ProductListView()
                     } label: {
-                        Text("Products")
+                        Text("Product List")
                     }
                 }
                 
-                Section("Repo") {
+                Section("Repo (API)") {
                     NavigationLink {
                         RepoListView()
                     } label: {
                         Text("Repo List")
+                    }
+                }
+                
+                Section("User (CoreData)") {
+                    NavigationLink {
+                        UserListView()
+                    } label: {
+                        Text("User List")
                     }
                 }
             }

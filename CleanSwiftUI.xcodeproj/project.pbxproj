@@ -36,6 +36,13 @@
 		17374228290A737000AF8707 /* RepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17374227290A737000AF8707 /* RepoListView.swift */; };
 		1737422A290A751100AF8707 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17374229290A751100AF8707 /* RepoView.swift */; };
 		173D0C4228D99ED4002787E1 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 173D0C4128D99ED4002787E1 /* Factory */; };
+		177E1A4E29120F8A0099BB24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A4C29120F8A0099BB24 /* Model.xcdatamodeld */; };
+		177E1A50291210630099BB24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A4F291210630099BB24 /* User.swift */; };
+		177E1A58291214A20099BB24 /* User+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A57291214A20099BB24 /* User+CoreData.swift */; };
+		177E1A5A2912170C0099BB24 /* UserGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A592912170C0099BB24 /* UserGateway.swift */; };
+		177E1A5D29121A7E0099BB24 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A5C29121A7E0099BB24 /* AddUser.swift */; };
+		177E1A6129121CD70099BB24 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6029121CD70099BB24 /* UserListView.swift */; };
+		177E1A6329121FDC0099BB24 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E1A6229121FDC0099BB24 /* GetUsers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +72,13 @@
 		17374223290A71E200AF8707 /* GetRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRepos.swift; sourceTree = "<group>"; };
 		17374227290A737000AF8707 /* RepoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListView.swift; sourceTree = "<group>"; };
 		17374229290A751100AF8707 /* RepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
+		177E1A4D29120F8A0099BB24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		177E1A4F291210630099BB24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		177E1A57291214A20099BB24 /* User+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreData.swift"; sourceTree = "<group>"; };
+		177E1A592912170C0099BB24 /* UserGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGateway.swift; sourceTree = "<group>"; };
+		177E1A5C29121A7E0099BB24 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
+		177E1A6029121CD70099BB24 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		177E1A6229121FDC0099BB24 /* GetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +148,7 @@
 		1716E01628AF66C00038A363 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				177E1A4B29120B7D0099BB24 /* CoreData */,
 				1716E03528AF6C060038A363 /* Gateways */,
 			);
 			path = Data;
@@ -151,6 +166,7 @@
 		1716E01828AF66D80038A363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				177E1A5E29121CC90099BB24 /* User */,
 				17374225290A72E900AF8707 /* Repo */,
 				1716E02628AF6A260038A363 /* Product */,
 				1716E01928AF66F50038A363 /* Main */,
@@ -203,6 +219,7 @@
 		1716E02E28AF6B5D0038A363 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				177E1A5B29121A740099BB24 /* User */,
 				17374222290A71DA00AF8707 /* Repo */,
 				1716E03028AF6B800038A363 /* Product */,
 			);
@@ -215,6 +232,7 @@
 				1716E03128AF6B8C0038A363 /* Product.swift */,
 				17374219290A6EA000AF8707 /* Repo.swift */,
 				172A7D3A2910F080005A2D3A /* Event.swift */,
+				177E1A4F291210630099BB24 /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -232,6 +250,7 @@
 			children = (
 				1716E03628AF6C330038A363 /* ProductGateway.swift */,
 				17374217290A5F5E00AF8707 /* RepoGateway.swift */,
+				177E1A592912170C0099BB24 /* UserGateway.swift */,
 				1737421E290A6F6900AF8707 /* APISessionManager.swift */,
 			);
 			path = Gateways;
@@ -280,6 +299,40 @@
 				17374229290A751100AF8707 /* RepoView.swift */,
 			);
 			path = RepoList;
+			sourceTree = "<group>";
+		};
+		177E1A4B29120B7D0099BB24 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A4C29120F8A0099BB24 /* Model.xcdatamodeld */,
+				177E1A57291214A20099BB24 /* User+CoreData.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		177E1A5B29121A740099BB24 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A5C29121A7E0099BB24 /* AddUser.swift */,
+				177E1A6229121FDC0099BB24 /* GetUsers.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		177E1A5E29121CC90099BB24 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A5F29121CCF0099BB24 /* UserList */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		177E1A5F29121CCF0099BB24 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				177E1A6029121CD70099BB24 /* UserListView.swift */,
+			);
+			path = UserList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +420,7 @@
 				1716E02D28AF6ACE0038A363 /* ProductListView.swift in Sources */,
 				172A7D3D2910F266005A2D3A /* GetEvents.swift in Sources */,
 				1716E04128AF71F10038A363 /* ProductDetailView.swift in Sources */,
+				177E1A50291210630099BB24 /* User.swift in Sources */,
 				17374228290A737000AF8707 /* RepoListView.swift in Sources */,
 				1716E03D28AF6ED40038A363 /* Double+.swift in Sources */,
 				17374221290A6FF000AF8707 /* Config+URLs.swift in Sources */,
@@ -374,9 +428,12 @@
 				1716E03728AF6C330038A363 /* ProductGateway.swift in Sources */,
 				17374218290A5F5E00AF8707 /* RepoGateway.swift in Sources */,
 				17374216290A5D8A00AF8707 /* Config.swift in Sources */,
+				177E1A58291214A20099BB24 /* User+CoreData.swift in Sources */,
 				1737421A290A6EA000AF8707 /* Repo.swift in Sources */,
+				177E1A4E29120F8A0099BB24 /* Model.xcdatamodeld in Sources */,
 				1716E02228AF691E0038A363 /* CancelBag.swift in Sources */,
 				172A7D392910D407005A2D3A /* RepoDetailView.swift in Sources */,
+				177E1A5D29121A7E0099BB24 /* AddUser.swift in Sources */,
 				1716E01C28AF67230038A363 /* MainView.swift in Sources */,
 				17374224290A71E200AF8707 /* GetRepos.swift in Sources */,
 				1716E02528AF697D0038A363 /* View+.swift in Sources */,
@@ -384,8 +441,11 @@
 				1737422A290A751100AF8707 /* RepoView.swift in Sources */,
 				1716E02028AF677E0038A363 /* AppDelegate.swift in Sources */,
 				172A7D3F2910F734005A2D3A /* EventView.swift in Sources */,
+				177E1A5A2912170C0099BB24 /* UserGateway.swift in Sources */,
+				177E1A6329121FDC0099BB24 /* GetUsers.swift in Sources */,
 				1716E03428AF6BB80038A363 /* GetListProduct.swift in Sources */,
 				172A7D3B2910F080005A2D3A /* Event.swift in Sources */,
+				177E1A6129121CD70099BB24 /* UserListView.swift in Sources */,
 				1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +707,19 @@
 			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		177E1A4C29120F8A0099BB24 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				177E1A4D29120F8A0099BB24 /* Model.xcdatamodel */,
+			);
+			currentVersion = 177E1A4D29120F8A0099BB24 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1716DFF828AF65A60038A363 /* Project object */;
 }

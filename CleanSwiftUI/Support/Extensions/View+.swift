@@ -21,11 +21,8 @@ extension View {
 }
 
 struct IDError: LocalizedError, Identifiable {
+    let id = UUID().uuidString
     let error: Error
-    
-    var id: String {
-        error.localizedDescription
-    }
     
     var errorDescription: String? {
         error.localizedDescription
