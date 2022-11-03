@@ -27,7 +27,7 @@ enum Gender: Int, Identifiable, CaseIterable {
     var id: Int { rawValue }
 }
 
-struct User: Identifiable {
+struct User: Identifiable, Then {
     var id = UUID().uuidString
     var name = ""
     var gender = Gender.unknown

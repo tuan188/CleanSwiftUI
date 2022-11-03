@@ -12,7 +12,7 @@ protocol AddUser {
 }
 
 extension AddUser {
-    func add(_ user: User) -> AnyPublisher<Void, Error> {
+    func addUser(_ user: User) -> AnyPublisher<Void, Error> {
         userGateway.add(user)
     }
 }

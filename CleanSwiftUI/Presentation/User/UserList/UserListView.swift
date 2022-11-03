@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Factory
 
-struct UserListView: View, GetUsers, AddUser, DeleteUser {
+struct UserListView: View, GetUsers, AddUser, DeleteUser, UpdateUser {
     private enum ViewState {
         case isLoading, loaded
     }
@@ -22,6 +22,7 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser {
     @State private var users = [User]()
     @State private var state = ViewState.isLoading
     @State private var error: IDError?
+    @State private var selectedUser: User?
     
     // Navigation
     @State private var showAddUser = false
@@ -33,10 +34,19 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser {
             .sheet(isPresented: $showAddUser) {
                 NavigationView {
                     AddUserView() { user in
-                        addUser(user)
+                        addUser(user: user)
                     }
                 }
             }
+            .sheet(item: $selectedUser, onDismiss: {
+                selectedUser = nil
+            }, content: { user in
+                NavigationView {
+                    EditUserView(user: user) { updatedUser in
+                        updateUser(user: updatedUser)
+                    }
+                }
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -84,6 +94,10 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser {
             List {
                 ForEach(users) { user in
                     UserView(user: user)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedUser = user
+                        }
                 }
                 .onDelete(perform: deleteUser)
             }
@@ -110,8 +124,8 @@ private extension UserListView {
             .store(in: cancelBag)
     }
     
-    func addUser(_ user: User) {
-        add(user)
+    func addUser(user: User) {
+        addUser(user)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -144,6 +158,22 @@ private extension UserListView {
             .store(in: cancelBag)
         
         users.remove(atOffsets: offsets)
+    }
+    
+    func updateUser(user: User) {
+        updateUser(user)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.error = IDError(error: error)
+                case .finished:
+                    break
+                }
+            } receiveValue: {
+                self.loadUsers()
+            }
+            .store(in: cancelBag)
+
     }
 }
 

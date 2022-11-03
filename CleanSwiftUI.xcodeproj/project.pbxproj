@@ -11,6 +11,9 @@
 		1708F41E2913995D00390EB1 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F41D2913995D00390EB1 /* UserView.swift */; };
 		1708F42029139F0F00390EB1 /* DeleteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F41F29139F0F00390EB1 /* DeleteUser.swift */; };
 		1708F4232913A71300390EB1 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4222913A71300390EB1 /* Publisher+.swift */; };
+		1708F4262913BD4700390EB1 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4252913BD4700390EB1 /* EditUserView.swift */; };
+		1708F4292913BDC600390EB1 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */; };
+		1708F42B2913BF4100390EB1 /* UpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F42A2913BF4100390EB1 /* UpdateUser.swift */; };
 		1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */; };
 		1716E00828AF65A80038A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00728AF65A80038A363 /* Assets.xcassets */; };
 		1716E00B28AF65A80038A363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00A28AF65A80038A363 /* Preview Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		1708F41D2913995D00390EB1 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		1708F41F29139F0F00390EB1 /* DeleteUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUser.swift; sourceTree = "<group>"; };
 		1708F4222913A71300390EB1 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
+		1708F4252913BD4700390EB1 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		1708F42A2913BF4100390EB1 /* UpdateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUser.swift; sourceTree = "<group>"; };
 		1716E00028AF65A60038A363 /* CleanSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftUIApp.swift; sourceTree = "<group>"; };
 		1716E00728AF65A80038A363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +128,22 @@
 				1708F4222913A71300390EB1 /* Publisher+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1708F4242913BD3F00390EB1 /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				1708F4252913BD4700390EB1 /* EditUserView.swift */,
+			);
+			path = EditUser;
+			sourceTree = "<group>";
+		};
+		1708F4272913BDBC00390EB1 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		1716DFF728AF65A60038A363 = {
@@ -347,6 +369,7 @@
 				177E1A5C29121A7E0099BB24 /* AddUser.swift */,
 				177E1A6229121FDC0099BB24 /* GetUsers.swift */,
 				1708F41F29139F0F00390EB1 /* DeleteUser.swift */,
+				1708F42A2913BF4100390EB1 /* UpdateUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -354,6 +377,7 @@
 		177E1A5E29121CC90099BB24 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				1708F4242913BD3F00390EB1 /* EditUser */,
 				1708F41A2913922900390EB1 /* AddUser */,
 				177E1A5F29121CCF0099BB24 /* UserList */,
 			);
@@ -380,6 +404,7 @@
 		177E1A6729124FC50099BB24 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1708F4272913BDBC00390EB1 /* ViewModifiers */,
 				177E1A6829124FD90099BB24 /* AppColorScheme.swift */,
 			);
 			path = Common;
@@ -468,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1716E02D28AF6ACE0038A363 /* ProductListView.swift in Sources */,
+				1708F4292913BDC600390EB1 /* ViewDidLoadModifier.swift in Sources */,
 				172A7D3D2910F266005A2D3A /* GetEvents.swift in Sources */,
 				1716E04128AF71F10038A363 /* ProductDetailView.swift in Sources */,
 				177E1A50291210630099BB24 /* User.swift in Sources */,
@@ -479,6 +505,7 @@
 				1716E03228AF6B8C0038A363 /* Product.swift in Sources */,
 				1716E03728AF6C330038A363 /* ProductGateway.swift in Sources */,
 				17374218290A5F5E00AF8707 /* RepoGateway.swift in Sources */,
+				1708F42B2913BF4100390EB1 /* UpdateUser.swift in Sources */,
 				17374216290A5D8A00AF8707 /* Config.swift in Sources */,
 				177E1A58291214A20099BB24 /* User+CoreData.swift in Sources */,
 				1708F41E2913995D00390EB1 /* UserView.swift in Sources */,
@@ -500,6 +527,7 @@
 				177E1A5A2912170C0099BB24 /* UserGateway.swift in Sources */,
 				177E1A6329121FDC0099BB24 /* GetUsers.swift in Sources */,
 				1716E03428AF6BB80038A363 /* GetListProduct.swift in Sources */,
+				1708F4262913BD4700390EB1 /* EditUserView.swift in Sources */,
 				172A7D3B2910F080005A2D3A /* Event.swift in Sources */,
 				177E1A6129121CD70099BB24 /* UserListView.swift in Sources */,
 				1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */,

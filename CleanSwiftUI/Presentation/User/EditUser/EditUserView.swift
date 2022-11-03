@@ -1,17 +1,19 @@
 //
-//  AddUserView.swift
+//  EditUserView.swift
 //  CleanSwiftUI
 //
 //  Created by Tuan Truong on 03/11/2022.
 //
 
 import SwiftUI
+import Combine
 
-struct AddUserView: View {
+struct EditUserView: View {
     @Environment(\.dismiss) var dismiss
     
     // Init
-    var onAdd: (User) -> Void
+    let user: User
+    var onUpdate: (User) -> Void
     
     // State
     @State private var name = ""
@@ -31,6 +33,10 @@ struct AddUserView: View {
                     try? await Task.sleep(nanoseconds: 600_000_000)  // 0.5s
                     focusedField = .name
                 }
+                .submitLabel(.done)
+                .onSubmit {
+                    updateUser()
+                }
             
             Picker("Gender", selection: $gender) {
                 ForEach(Gender.allCases) { gender in
@@ -49,26 +55,36 @@ struct AddUserView: View {
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Add") {
-                    addUser()
+                Button("Update") {
+                    updateUser()
                 }
                 .disabled(name.isEmpty)
             }
+        }
+        .onLoad {
+            name = user.name
+            gender = user.gender
+            birthday = user.birthday
         }
     }
 }
 
 // MARK: - Methods
-private extension AddUserView {
-    func addUser() {
-        let user = User(name: name, gender: gender, birthday: birthday)
-        onAdd(user)
+private extension EditUserView {
+    func updateUser() {
+        let user = self.user.with {
+            $0.name = name
+            $0.gender = gender
+            $0.birthday = birthday
+        }
+        
+        onUpdate(user)
         dismiss()
     }
 }
 
-//struct AddUserView_Previews: PreviewProvider {
+//struct EditUserView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddUserView()
+//        EditUserView()
 //    }
 //}
