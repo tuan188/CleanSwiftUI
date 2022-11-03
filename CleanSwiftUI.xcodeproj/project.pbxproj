@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1708F41C2913923500390EB1 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F41B2913923500390EB1 /* AddUserView.swift */; };
+		1708F41E2913995D00390EB1 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F41D2913995D00390EB1 /* UserView.swift */; };
+		1708F42029139F0F00390EB1 /* DeleteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F41F29139F0F00390EB1 /* DeleteUser.swift */; };
+		1708F4232913A71300390EB1 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4222913A71300390EB1 /* Publisher+.swift */; };
 		1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */; };
 		1716E00828AF65A80038A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00728AF65A80038A363 /* Assets.xcassets */; };
 		1716E00B28AF65A80038A363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00A28AF65A80038A363 /* Preview Assets.xcassets */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1708F41B2913923500390EB1 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		1708F41D2913995D00390EB1 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		1708F41F29139F0F00390EB1 /* DeleteUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUser.swift; sourceTree = "<group>"; };
+		1708F4222913A71300390EB1 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		1716E00028AF65A60038A363 /* CleanSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftUIApp.swift; sourceTree = "<group>"; };
 		1716E00728AF65A80038A363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1708F41A2913922900390EB1 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				1708F41B2913923500390EB1 /* AddUserView.swift */,
+			);
+			path = AddUser;
+			sourceTree = "<group>";
+		};
+		1708F4212913A70600390EB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1708F4222913A71300390EB1 /* Publisher+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1716DFF728AF65A60038A363 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +143,7 @@
 		1716E00228AF65A60038A363 /* CleanSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1708F4212913A70600390EB1 /* Extensions */,
 				17374214290A5D7B00AF8707 /* Config */,
 				1716E01828AF66D80038A363 /* Presentation */,
 				1716E01728AF66CF0038A363 /* Support */,
@@ -321,6 +346,7 @@
 			children = (
 				177E1A5C29121A7E0099BB24 /* AddUser.swift */,
 				177E1A6229121FDC0099BB24 /* GetUsers.swift */,
+				1708F41F29139F0F00390EB1 /* DeleteUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -328,6 +354,7 @@
 		177E1A5E29121CC90099BB24 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				1708F41A2913922900390EB1 /* AddUser */,
 				177E1A5F29121CCF0099BB24 /* UserList */,
 			);
 			path = User;
@@ -337,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				177E1A6029121CD70099BB24 /* UserListView.swift */,
+				1708F41D2913995D00390EB1 /* UserView.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -447,13 +475,16 @@
 				17374228290A737000AF8707 /* RepoListView.swift in Sources */,
 				1716E03D28AF6ED40038A363 /* Double+.swift in Sources */,
 				17374221290A6FF000AF8707 /* Config+URLs.swift in Sources */,
+				1708F4232913A71300390EB1 /* Publisher+.swift in Sources */,
 				1716E03228AF6B8C0038A363 /* Product.swift in Sources */,
 				1716E03728AF6C330038A363 /* ProductGateway.swift in Sources */,
 				17374218290A5F5E00AF8707 /* RepoGateway.swift in Sources */,
 				17374216290A5D8A00AF8707 /* Config.swift in Sources */,
 				177E1A58291214A20099BB24 /* User+CoreData.swift in Sources */,
+				1708F41E2913995D00390EB1 /* UserView.swift in Sources */,
 				1737421A290A6EA000AF8707 /* Repo.swift in Sources */,
 				177E1A4E29120F8A0099BB24 /* Model.xcdatamodeld in Sources */,
+				1708F42029139F0F00390EB1 /* DeleteUser.swift in Sources */,
 				1716E02228AF691E0038A363 /* CancelBag.swift in Sources */,
 				172A7D392910D407005A2D3A /* RepoDetailView.swift in Sources */,
 				177E1A5D29121A7E0099BB24 /* AddUser.swift in Sources */,
@@ -462,6 +493,7 @@
 				1716E02528AF697D0038A363 /* View+.swift in Sources */,
 				1737421F290A6F6900AF8707 /* APISessionManager.swift in Sources */,
 				177E1A6629124D760099BB24 /* MoreView.swift in Sources */,
+				1708F41C2913923500390EB1 /* AddUserView.swift in Sources */,
 				1737422A290A751100AF8707 /* RepoView.swift in Sources */,
 				1716E02028AF677E0038A363 /* AppDelegate.swift in Sources */,
 				172A7D3F2910F734005A2D3A /* EventView.swift in Sources */,

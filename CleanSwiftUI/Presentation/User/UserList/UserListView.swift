@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Factory
 
-struct UserListView: View, GetUsers {
+struct UserListView: View, GetUsers, AddUser, DeleteUser {
     private enum ViewState {
         case isLoading, loaded
     }
@@ -31,7 +31,11 @@ struct UserListView: View, GetUsers {
             .navigationTitle("User List")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showAddUser) {
-                Text("Add User")
+                NavigationView {
+                    AddUserView() { user in
+                        addUser(user)
+                    }
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -79,9 +83,11 @@ struct UserListView: View, GetUsers {
         } else {
             List {
                 ForEach(users) { user in
-                    Text(user.name)
+                    UserView(user: user)
                 }
+                .onDelete(perform: deleteUser)
             }
+            .listStyle(.plain)
         }
     }
 }
@@ -102,6 +108,42 @@ private extension UserListView {
                 self.state = .loaded
             }
             .store(in: cancelBag)
+    }
+    
+    func addUser(_ user: User) {
+        add(user)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.error = IDError(error: error)
+                case .finished:
+                    break
+                }
+            } receiveValue: {
+                self.loadUsers()
+            }
+            .store(in: cancelBag)
+
+    }
+    
+    func deleteUser(at offsets: IndexSet) {
+        let index = offsets[offsets.startIndex]
+        let user = users[index]
+        
+        deleteUser(byID: user.id)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    self.error = IDError(error: error)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { _ in
+                loadUsers()
+            })
+            .store(in: cancelBag)
+        
+        users.remove(atOffsets: offsets)
     }
 }
 

@@ -12,6 +12,7 @@ import CoreStore
 protocol UserGatewayProtocol {
     func add(_ user: User) -> AnyPublisher<Void, Error>
     func all() -> AnyPublisher<[User], Error>
+    func delete(byID id: String) -> AnyPublisher<User?, Error>
 }
 
 final class UserGateway: UserGatewayProtocol {
@@ -37,6 +38,22 @@ final class UserGateway: UserGatewayProtocol {
                 
                 return entities.map { User(entity: $0) }
                     .compactMap { $0 }
+            }
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
+    func delete(byID id: String) -> AnyPublisher<User?, Error> {
+        CoreStoreDefaults.dataStack
+            .reactive
+            .perform { transaction -> User? in
+                let entity = try transaction.fetchOne(
+                    From<CDUser>()
+                        .where(\.id == id)
+                )
+                
+                transaction.delete(entity)
+                return entity.flatMap { User(entity: $0) }
             }
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

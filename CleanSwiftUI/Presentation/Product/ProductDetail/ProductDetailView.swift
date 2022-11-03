@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProductDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
+    
     let product: Product
     
     var body: some View {
@@ -19,7 +20,7 @@ struct ProductDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Close") {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }
             }
         }
