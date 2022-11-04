@@ -11,7 +11,7 @@ import Factory
 
 struct RepoDetailView: View, GetEvents {
     private enum ViewState {
-        case isLoading, loaded
+        case isLoading, loaded, loadingMore, reloading
     }
     
     // Dependencies
@@ -25,6 +25,7 @@ struct RepoDetailView: View, GetEvents {
     @State private var events = [Event]()
     @State private var error: IDError?
     @State private var state = ViewState.isLoading
+    @State private var page = 1
     
     // Properties
     private let perPage = 20
@@ -68,10 +69,28 @@ struct RepoDetailView: View, GetEvents {
                 }
             }
             
+            if state == .loadingMore {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .listRowSeparator(.hidden)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+            } else {
+                Color.clear
+                    .listRowSeparator(.hidden)
+                    .padding()
+                    .onAppear {
+                        loadMoreEvents()
+                    }
+            }
+            
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
         .alert(error: $error)
+        .refreshable {
+            reloadEvents()
+        }
         .onAppear {
             loadEvents()
         }
@@ -81,7 +100,7 @@ struct RepoDetailView: View, GetEvents {
 // MARK: - Methods
 private extension RepoDetailView {
     func loadEvents() {
-        getEvents(url: repo.eventUrl, page: 1, perPage: 10)
+        getEvents(url: repo.eventUrl, page: 1, perPage: perPage)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -92,6 +111,32 @@ private extension RepoDetailView {
             } receiveValue: { events in
                 self.state = .loaded
                 self.events = events
+            }
+            .store(in: cancelBag)
+    }
+    
+    func reloadEvents() {
+        guard state == .loaded else { return }
+        state = .reloading
+        loadEvents()
+    }
+    
+    func loadMoreEvents() {
+        guard state == .loaded else { return }
+        state = .loadingMore
+
+        getEvents(url: repo.eventUrl, page: page + 1, perPage: perPage)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.error = IDError(error: error)
+                case .finished:
+                    break
+                }
+            } receiveValue: { events in
+                self.page += 1
+                self.events += events
+                state = .loaded
             }
             .store(in: cancelBag)
     }

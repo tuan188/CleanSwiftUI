@@ -126,7 +126,7 @@ private extension RepoListView {
                 }
             } receiveValue: { repos in
                 self.page += 1
-                self.repos = self.repos + repos
+                self.repos += repos
                 state = .loaded
             }
             .store(in: cancelBag)
