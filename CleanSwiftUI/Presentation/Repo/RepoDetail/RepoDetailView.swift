@@ -101,14 +101,8 @@ struct RepoDetailView: View, GetEvents {
 private extension RepoDetailView {
     func loadEvents() {
         getEvents(url: repo.eventUrl, page: 1, perPage: perPage)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { events in
+            .handleFailure(error: $error)
+            .sink { events in
                 self.state = .loaded
                 self.events = events
             }
@@ -126,14 +120,8 @@ private extension RepoDetailView {
         state = .loadingMore
 
         getEvents(url: repo.eventUrl, page: page + 1, perPage: perPage)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { events in
+            .handleFailure(error: $error)
+            .sink { events in
                 self.page += 1
                 self.events += events
                 state = .loaded

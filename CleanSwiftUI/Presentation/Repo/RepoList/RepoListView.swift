@@ -91,14 +91,8 @@ private extension RepoListView {
 private extension RepoListView {
     func loadRepos() {
         getRepos(page: 1, perPage: perPage)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { repos in
+            .handleFailure(error: $error)
+            .sink { repos in
                 self.page = 1
                 self.repos = repos
                 state = .loaded
@@ -117,14 +111,8 @@ private extension RepoListView {
         state = .loadingMore
 
         getRepos(page: page + 1, perPage: perPage)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { repos in
+            .handleFailure(error: $error)
+            .sink { repos in
                 self.page += 1
                 self.repos += repos
                 state = .loaded

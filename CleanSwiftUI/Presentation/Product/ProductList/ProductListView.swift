@@ -49,14 +49,8 @@ struct ProductListView: View, GetListProduct {
 extension ProductListView {
     func getProductList() {
         getProductList()
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { products in
+            .handleFailure(error: $error)
+            .sink { products in
                 self.products = products
             }
             .store(in: cancelBag)

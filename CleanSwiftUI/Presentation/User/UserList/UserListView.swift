@@ -110,14 +110,8 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser, UpdateUser {
 private extension UserListView {
     func loadUsers() {
         getUsers()
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { users in
+            .handleFailure(error: $error)
+            .sink { users in
                 self.users = users
                 self.state = .loaded
             }
@@ -126,14 +120,8 @@ private extension UserListView {
     
     func addUser(user: User) {
         addUser(user)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: {
+            .handleFailure(error: $error)
+            .sink {
                 self.loadUsers()
             }
             .store(in: cancelBag)
@@ -145,16 +133,10 @@ private extension UserListView {
         let user = users[index]
         
         deleteUser(byID: user.id)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            }, receiveValue: { _ in
+            .handleFailure(error: $error)
+            .sink { _ in
                 loadUsers()
-            })
+            }
             .store(in: cancelBag)
         
         users.remove(atOffsets: offsets)
@@ -162,14 +144,8 @@ private extension UserListView {
     
     func updateUser(user: User) {
         updateUser(user)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.error = IDError(error: error)
-                case .finished:
-                    break
-                }
-            } receiveValue: {
+            .handleFailure(error: $error)
+            .sink {
                 self.loadUsers()
             }
             .store(in: cancelBag)
