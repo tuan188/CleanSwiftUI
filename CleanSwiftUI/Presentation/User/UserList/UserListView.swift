@@ -31,22 +31,13 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser, UpdateUser {
         content
             .navigationTitle("User List")
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $showAddUser) {
-                NavigationView {
-                    AddUserView() { user in
-                        addUser(user: user)
-                    }
-                }
+            .presentAddUser(isPresented: $showAddUser) { user in
+                addUser(user: user)
             }
-            .sheet(item: $selectedUser, onDismiss: {
-                selectedUser = nil
-            }, content: { user in
-                NavigationView {
-                    EditUserView(user: user) { updatedUser in
-                        updateUser(user: updatedUser)
-                    }
-                }
-            })
+            .presentEditUser(user: $selectedUser) { user in
+                updateUser(user: user)
+            }
+            .alert(error: $error)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

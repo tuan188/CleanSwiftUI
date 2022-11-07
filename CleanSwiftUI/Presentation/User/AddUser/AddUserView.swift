@@ -67,6 +67,17 @@ private extension AddUserView {
     }
 }
 
+// MARK: - Navigation
+extension View {
+    func presentAddUser(isPresented: Binding<Bool>, onAdd: @escaping (User) -> Void) -> some View {
+        self.sheet(isPresented: isPresented) {
+            NavigationView {
+                AddUserView(onAdd: onAdd)
+            }
+        }
+    }
+}
+
 //struct AddUserView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        AddUserView()

@@ -83,6 +83,19 @@ private extension EditUserView {
     }
 }
 
+// MARK: - Navigation
+extension View {
+    func presentEditUser(user: Binding<User?>, onUpdate: @escaping (User) -> Void) -> some View {
+        self.sheet(item: user, onDismiss: {
+            user.wrappedValue = nil
+        }, content: { user in
+            NavigationView {
+                EditUserView(user: user, onUpdate: onUpdate)
+            }
+        })
+    }
+}
+
 //struct EditUserView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        EditUserView()
