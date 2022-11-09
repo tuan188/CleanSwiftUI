@@ -14,6 +14,8 @@
 		1708F4262913BD4700390EB1 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4252913BD4700390EB1 /* EditUserView.swift */; };
 		1708F4292913BDC600390EB1 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */; };
 		1708F42B2913BF4100390EB1 /* UpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708F42A2913BF4100390EB1 /* UpdateUser.swift */; };
+		170DBED92918E31C003F658B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DBED82918E31C003F658B /* LoginView.swift */; };
+		170DBEDC2918E385003F658B /* ValidatedPropertyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 170DBEDB2918E385003F658B /* ValidatedPropertyKit */; };
 		1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */; };
 		1716E00828AF65A80038A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00728AF65A80038A363 /* Assets.xcassets */; };
 		1716E00B28AF65A80038A363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716E00A28AF65A80038A363 /* Preview Assets.xcassets */; };
@@ -63,6 +65,7 @@
 		1708F4252913BD4700390EB1 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		1708F42A2913BF4100390EB1 /* UpdateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUser.swift; sourceTree = "<group>"; };
+		170DBED82918E31C003F658B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1716E00028AF65A60038A363 /* CleanSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1716E00328AF65A60038A363 /* CleanSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftUIApp.swift; sourceTree = "<group>"; };
 		1716E00728AF65A80038A363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 				1716E01328AF669D0038A363 /* Then in Frameworks */,
 				1737420E290A592400AF8707 /* RequestBuilder in Frameworks */,
 				173D0C4228D99ED4002787E1 /* Factory in Frameworks */,
+				170DBEDC2918E385003F658B /* ValidatedPropertyKit in Frameworks */,
 				17374211290A5A6F00AF8707 /* CoreStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +142,22 @@
 				1708F4282913BDC600390EB1 /* ViewDidLoadModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		170DBED62918E306003F658B /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				170DBED72918E311003F658B /* Login */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		170DBED72918E311003F658B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				170DBED82918E31C003F658B /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		1716DFF728AF65A60038A363 = {
@@ -211,6 +231,7 @@
 		1716E01828AF66D80038A363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				170DBED62918E306003F658B /* Shopping */,
 				177E1A6729124FC50099BB24 /* Common */,
 				177E1A6429124C650099BB24 /* More */,
 				177E1A5E29121CC90099BB24 /* User */,
@@ -426,6 +447,7 @@
 				173D0C4128D99ED4002787E1 /* Factory */,
 				1737420D290A592400AF8707 /* RequestBuilder */,
 				17374210290A5A6F00AF8707 /* CoreStore */,
+				170DBEDB2918E385003F658B /* ValidatedPropertyKit */,
 			);
 			productName = CleanSwiftUI;
 			productReference = 1716E00028AF65A60038A363 /* CleanSwiftUI.app */;
@@ -460,6 +482,7 @@
 				173D0C4028D99ED4002787E1 /* XCRemoteSwiftPackageReference "Factory" */,
 				1737420C290A592400AF8707 /* XCRemoteSwiftPackageReference "RequestBuilder" */,
 				1737420F290A5A6F00AF8707 /* XCRemoteSwiftPackageReference "CoreStore" */,
+				170DBEDA2918E385003F658B /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */,
 			);
 			productRefGroup = 1716E00128AF65A60038A363 /* Products */;
 			projectDirPath = "";
@@ -526,6 +549,7 @@
 				1708F4262913BD4700390EB1 /* EditUserView.swift in Sources */,
 				172A7D3B2910F080005A2D3A /* Event.swift in Sources */,
 				177E1A6129121CD70099BB24 /* UserListView.swift in Sources */,
+				170DBED92918E31C003F658B /* LoginView.swift in Sources */,
 				1716E00428AF65A60038A363 /* CleanSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +755,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		170DBEDA2918E385003F658B /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/ValidatedPropertyKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
 		1716E01128AF669D0038A363 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -766,6 +798,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		170DBEDB2918E385003F658B /* ValidatedPropertyKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 170DBEDA2918E385003F658B /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */;
+			productName = ValidatedPropertyKit;
+		};
 		1716E01228AF669D0038A363 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1716E01128AF669D0038A363 /* XCRemoteSwiftPackageReference "Then" */;

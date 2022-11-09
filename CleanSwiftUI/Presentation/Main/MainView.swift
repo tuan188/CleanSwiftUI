@@ -15,6 +15,11 @@ struct MainView: View {
                     Label("Home", systemImage: "house.fill")
                 }
             
+            productView
+                .tabItem {
+                    Label("Shopping", systemImage: "basket.fill")
+                }
+            
             moreView
                 .tabItem {
                     Label("More", systemImage: "ellipsis")
@@ -49,6 +54,13 @@ struct MainView: View {
     private var moreView: some View {
         NavigationView {
             MoreView()
+        }
+    }
+    
+    @ViewBuilder
+    private var productView: some View {
+        NavigationView {
+            LoginView()
         }
     }
 }
