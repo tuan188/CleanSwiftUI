@@ -26,15 +26,7 @@ struct LoginView: View {
     
     var body: some View {
         Form {
-            Section(footer: VStack(alignment: .leading) {
-                if didTapLogin && !_email.isValid {
-                    Text("Invalid email")
-                }
-                
-                if didTapLogin && !_password.isValid {
-                    Text("Invalid password")
-                }
-            }) {
+            Section(footer: validationView) {
                 TextField("Email", text: $email)
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
@@ -72,6 +64,23 @@ struct LoginView: View {
             Button("OK") { }
         } message: {
             Text(email)
+        }
+    }
+    
+    @ViewBuilder
+    private var validationView: some View {
+        if didTapLogin {
+            VStack(alignment: .leading) {
+                if !_email.isValid {
+                    Text("Invalid email")
+                }
+                
+                if !_password.isValid {
+                    Text("Invalid password")
+                }
+            }
+        } else {
+            EmptyView()
         }
     }
     
