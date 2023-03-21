@@ -79,6 +79,8 @@ final class UserGateway: UserGatewayProtocol {
 }
 
 extension Container {
-    static let userGateway = Factory { UserGateway() as UserGatewayProtocol }
+    var userGateway: Factory<UserGatewayProtocol> {
+        Factory(self) { UserGateway() }
+    }
 }
 

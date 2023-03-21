@@ -15,7 +15,7 @@ struct UserListView: View, GetUsers, AddUser, DeleteUser, UpdateUser {
     }
     
     // Dependencies
-    @Injected(Container.userGateway) var userGateway: UserGatewayProtocol
+    @Injected(\.userGateway) var userGateway: UserGatewayProtocol
     
     // State
     @State private var cancelBag = CancelBag()

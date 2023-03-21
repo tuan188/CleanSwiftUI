@@ -15,7 +15,7 @@ struct RepoDetailView: View, GetEvents {
     }
     
     // Dependencies
-    @Injected(Container.repoGateway) var repoGateway: RepoGatewayProtocol
+    @Injected(\.repoGateway) var repoGateway: RepoGatewayProtocol
     
     // Init
     let repo: Repo

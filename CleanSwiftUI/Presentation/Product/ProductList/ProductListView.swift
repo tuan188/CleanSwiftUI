@@ -14,11 +14,12 @@ struct ProductListView: View, GetListProduct {
     @State private var selectedProduct: Product?
     @State private var cancelBag = CancelBag()
     
-    @Injected(Container.productGateway) var productGateway
+    @Injected(\.productGateway) var productGateway
     
     var body: some View {
         List {
             ForEach(products) { product in
+                
                 Button {
                     selectedProduct = product
                 } label: {
@@ -59,7 +60,7 @@ extension ProductListView {
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        let _ = Container.productGateway.register { MockProductGateway() }
+        let _ = Container.shared.productGateway.register { MockProductGateway() }
         ProductListView()
     }
 }

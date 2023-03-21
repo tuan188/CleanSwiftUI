@@ -46,5 +46,7 @@ struct MockProductGateway: ProductGatewayProtocol {
 }
 
 extension Container {
-    static let productGateway = Factory { ProductGateway() as ProductGatewayProtocol }
+    var productGateway: Factory<ProductGatewayProtocol> {
+        Factory(self) { ProductGateway() }
+    }
 }

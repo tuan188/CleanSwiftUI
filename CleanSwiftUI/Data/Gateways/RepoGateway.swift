@@ -49,6 +49,8 @@ final class RepoGateway: RepoGatewayProtocol {
 }
 
 extension Container {
-    static let repoGateway = Factory { RepoGateway() as RepoGatewayProtocol }
+    var repoGateway: Factory<RepoGatewayProtocol> {
+        Factory(self) { RepoGateway() }
+    }
 }
 

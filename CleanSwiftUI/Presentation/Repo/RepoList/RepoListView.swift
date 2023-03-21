@@ -15,7 +15,7 @@ struct RepoListView: View, GetRepos {
     }
     
     // Dependencies
-    @Injected(Container.repoGateway) var repoGateway: RepoGatewayProtocol
+    @Injected(\.repoGateway) var repoGateway: RepoGatewayProtocol
     
     // State
     @State private var cancelBag = CancelBag()
