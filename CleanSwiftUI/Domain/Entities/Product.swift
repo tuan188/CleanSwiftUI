@@ -12,3 +12,7 @@ struct Product: Identifiable {
     var name = ""
     var price = 0.0
 }
+
+extension Product: Equatable {
+    
+}

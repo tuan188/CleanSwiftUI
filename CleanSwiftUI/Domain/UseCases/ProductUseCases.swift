@@ -1,11 +1,10 @@
 //
-//  GetListProduct.swift
+//  ProductUseCases.swift
 //  CleanSwiftUI
 //
-//  Created by Tuan Truong on 19/08/2022.
+//  Created by Tuan Truong on 23/03/2023.
 //
 
-import Foundation
 import Combine
 
 protocol GetListProduct {

@@ -33,3 +33,7 @@ struct User: Identifiable, Then {
     var gender = Gender.unknown
     var birthday = Date()
 }
+
+extension User: Equatable {
+    
+}
